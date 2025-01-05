@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Responsive Webpage</title>
+  <link rel="stylesheet" href="./dist/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-manrope">
+  <!-- Navigation Bar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="/"><h1 class="text-2xl font-extrabold text-primary tracking-tight">ModernPage</h1></a>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6">
+        <li>
+          <a href="#home" class="nav-link text-gray-600 hover:text-primary transition items-center rounded-full hover:bg-gray-200 px-4 py-2">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="nav-link text-gray-600 hover:text-primary transition items-center rounded-full hover:bg-gray-200 px-4 py-2">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link text-gray-600 hover:text-primary transition items-center rounded-full hover:bg-gray-200 px-4 py-2">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <!-- Hamburger Menu -->
+      <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
+      <ul class="flex flex-col space-y-2 py-4 px-6">
+        <li>
+          <a href="#home" class="block text-gray-600 hover:text-primary transition items-center rounded-full hover:bg-gray-200 px-4 py-2">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#about" class="block text-gray-600 hover:text-primary transition items-center rounded-full hover:bg-gray-200 px-4 py-2">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="block text-gray-600 hover:text-primary transition items-center rounded-full hover:bg-gray-200 px-4 py-2">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <!-- Home Section -->
+    <section id="home" class="flex flex-col items-center justify-center text-center bg-gradient-to-r from-activestate1 to-activestate2 text-primary rounded-lg shadow-lg py-16 mb-12">
+      <h2 class="text-4xl font-extrabold mb-4">Welcome to ModernPage</h2>
+      <p class="text-lg ">
+        Experience a modern, sleek, and responsive design that adapts perfectly to any device.
+      </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 text-center">
+      <h2 class="text-3xl font-bold text-primary mb-6">About Us</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        We specialize in creating cutting-edge, user-centric designs to enhance user experiences and modernize web interfaces.
+      </p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="bg-white shadow-lg rounded-lg p-8 py-12">
+      <h2 class="text-3xl font-bold text-center text-primary mb-8">Contact Us</h2>
+      <form action="#" method="POST" class="space-y-6">
+        <div class="relative">
+          <label for="name" class="absolute -top-3.5 left-3 bg-white text-sm px-1 text-primary">Name</label>
+          <input type="text" id="name" name="name" 
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                 placeholder="Your Name" required>
+        </div>
+        <div class="relative">
+          <label for="email" class="absolute -top-3.5 left-3 bg-white text-sm px-1 text-primary">Email</label>
+          <input type="email" id="email" name="email" 
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                 placeholder="Your Email" required>
+        </div>
+        <div class="relative">
+          <label for="message" class="absolute -top-3.5 left-3 bg-white text-sm px-1 text-primary">Message</label>
+          <textarea id="message" name="message" rows="5" 
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="Your Message" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" 
+                  class="bg-gradient-to-r from-[#01F0D0] to-[#D8FCF7] text-accent font-bold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-activestate1 transform transition-all hover:scale-125">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-6 mt-12">
+    <p>&copy; 2025 ModernPage. All rights reserved.</p>
+  </footer>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  sections.forEach(section => {
+    section.style.display = 'block';
+  });
+});
+
+ // Mobile menu toggle
+ const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Toggle mobile menu visibility
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Set active state for navigation links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      // Remove active state from all links
+      navLinks.forEach(nav => nav.classList.remove('bg-teal-400', 'text-white', 'scale-105'));
+
+      // Add active state to the clicked link
+      this.classList.add('bg-teal-400', 'text-white', 'scale-105');
+    });
+  });
+
+  // Hide mobile menu when a link is clicked (for better UX)
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+        });
+
+        // Display the clicked section
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        targetSection.style.display = 'block';
+
+        // Scroll smoothly to the section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    });
+
+    // // Ensure all sections except the first are hidden on page load
+    // document.addEventListener('DOMContentLoaded', () => {
+    // document.querySelectorAll('section').forEach((section, index) => {
+    //     section.style.display = index === 0 ? 'block' : 'none';
+    // });
+    // });
+
+
+
+    // navLinks.forEach(link => {
+    // link.addEventListener('click', function () {
+    //     // Remove 'active' class from all links
+    //     navLinks.forEach(link => link.classList.remove('bg-teal-400', 'scale-105'));
+
+    //     // Add 'active' class to the clicked link
+    //     this.classList.add('bg-teal-400', 'scale-105');
+    // });
+    // });
+
+      // Set active state and display only the clicked section
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Remove active state from all links
+        navLinks.forEach(nav => nav.classList.remove('bg-teal-400', 'text-white', 'scale-105'));
+
+        // Add active state to the clicked link
+        this.classList.add('bg-teal-400', 'text-white', 'scale-105');
+
+        // Hide all sections
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Show the clicked section
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        targetSection.style.display = 'block';
+
+        // Close mobile menu after clicking
+        mobileMenu.classList.add('hidden');
+
+        // Smooth scroll to the section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+  </script>
+
+  
+</html>
